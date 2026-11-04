@@ -12,6 +12,7 @@
   const TABLE = CFG.table || "cakes";
   const BUCKET = CFG.bucket || "cake-photos";
   const SESSION_KEY = "pp_admin_session";
+  const REQUESTS_TABLE = "custom_requests";
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -55,6 +56,11 @@
     cakeSortOrder: $("#cakeSortOrder"),
     cakeFormError: $("#cakeFormError"),
     saveCakeBtn: $("#saveCakeBtn"),
+    menuPanel: $("#menuPanel"),
+    requestsPanel: $("#requestsPanel"),
+    requestList: $("#requestList"),
+    emptyRequests: $("#emptyRequests"),
+    requestBadge: $("#requestBadge"),
   };
 
   const state = {
@@ -63,6 +69,9 @@
     search: "",
     statusTimer: null,
     uploading: false,
+    requests: [],
+    requestFilter: "all",
+    tab: "menu",
   };
 
   /* ------------------------------------------------------------------------
@@ -222,6 +231,7 @@
     els.adminView.hidden = false;
     els.signOutBtn.hidden = false;
     loadCakes();
+    loadRequests();
   }
 
   function setupAuth() {
@@ -532,6 +542,214 @@
     }
   }
 
+  /* ------------------------------------------------------------------------
+     Custom requests
+  ------------------------------------------------------------------------ */
+  const REQUEST_STATUSES = [
+    { id: "new", label: "New" },
+    { id: "quoted", label: "Quoted" },
+    { id: "confirmed", label: "Confirmed" },
+    { id: "done", label: "Done" },
+    { id: "cancelled", label: "Cancelled" },
+  ];
+
+  const REQUEST_STYLES = {
+    new: "bg-berry text-white",
+    quoted: "bg-butter text-ink",
+    confirmed: "bg-pistachio/60 text-ink",
+    done: "bg-sage-deep text-ink-soft",
+    cancelled: "bg-ink/10 text-ink-soft",
+  };
+
+  function formatDate(value, withTime = false) {
+    if (withTime) {
+      return new Date(value).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+    }
+    return new Date(`${value}T00:00:00`).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  }
+
+  function requestLabel(id) {
+    return REQUEST_STATUSES.find((item) => item.id === id)?.label || id;
+  }
+
+  // Indian mobile numbers are stored as typed (10 digits). wa.me needs the country code.
+  function whatsappLink(phone) {
+    const digits = String(phone || "").replace(/\D/g, "");
+    if (!digits) return "";
+    return `https://wa.me/${digits.length === 10 ? `91${digits}` : digits}`;
+  }
+
+  async function loadRequests() {
+    try {
+      const response = await apiFetch(`/rest/v1/${encodeURIComponent(REQUESTS_TABLE)}?select=*&order=created_at.desc`);
+      if (!response.ok) throw new Error(await readError(response));
+      const rows = await response.json();
+      state.requests = Array.isArray(rows) ? rows : [];
+      renderRequests();
+    } catch (error) {
+      status(error.message || "Could not load custom requests.", "error");
+    }
+  }
+
+  function requestField(label, value) {
+    return `<div class="min-w-0"><dt class="font-label text-[0.56rem] uppercase tracking-[0.12em] text-ink-soft">${label}</dt><dd class="mt-0.5 break-words text-sm">${value}</dd></div>`;
+  }
+
+  function requestCard(row) {
+    const photos = Array.isArray(row.photos) ? row.photos : [];
+    const advance = Number(row.advance_paid) || 0;
+    const quote = row.quote == null ? null : Number(row.quote);
+    const balance = quote === null ? null : Math.max(0, quote - advance);
+    const spec = [row.occasion, row.size, row.flavour, row.eggless ? "Eggless" : ""].filter(Boolean).join(" · ");
+    const contact = whatsappLink(row.phone);
+    const mode = row.mode === "delivery" ? `Delivery${row.address ? `: ${esc(row.address)}` : ""}` : "Pickup";
+
+    const fields = [
+      requestField("Needed", esc(formatDate(row.needed_on))),
+      requestField("Mode", mode),
+      requestField("Cake", esc(spec) || "—"),
+      requestField("Message on cake", row.cake_message ? `“${esc(row.cake_message)}”` : "—"),
+      requestField("Design notes", esc(row.changes) || "—"),
+      requestField(
+        "Contact",
+        contact ? `<a class="underline" href="${esc(contact)}" target="_blank" rel="noopener">${esc(row.phone)}</a>` : "Not given"
+      ),
+    ].join("");
+
+    const photoGrid = photos.length
+      ? `<div class="mt-3 grid grid-cols-3 gap-2">${photos
+          .map(
+            (url, index) => `
+            <a href="${esc(url)}" target="_blank" rel="noopener">
+              <img src="${esc(url)}" alt="Reference photo ${index + 1} for ${esc(row.name)}" class="h-24 w-full rounded-lg border border-ink/10 bg-sage-deep object-cover" loading="lazy" />
+            </a>`
+          )
+          .join("")}</div>`
+      : `<p class="mt-3 text-[0.7rem] text-ink-soft">No photos uploaded. Ask for them in the WhatsApp chat.</p>`;
+
+    const statusOptions = REQUEST_STATUSES.map(
+      (item) => `<option value="${item.id}" ${item.id === row.status ? "selected" : ""}>${item.label}</option>`
+    ).join("");
+
+    return `
+      <article class="rounded-[1.25rem] border border-ink/12 bg-white p-4" data-request-id="${esc(row.id)}">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <p class="font-label text-[0.58rem] uppercase tracking-[0.12em] text-ink-soft">Received ${esc(formatDate(row.created_at, true))}</p>
+            <h2 class="mt-0.5 truncate font-display text-xl leading-tight">${esc(row.name)}</h2>
+          </div>
+          <span class="flex-none rounded-full px-2.5 py-1 font-label text-[0.6rem] uppercase tracking-[0.08em] ${REQUEST_STYLES[row.status] || ""}">${esc(requestLabel(row.status))}</span>
+        </div>
+
+        <dl class="mt-3 grid gap-x-4 gap-y-3 sm:grid-cols-2">${fields}</dl>
+        ${photoGrid}
+
+        <div class="mt-4 grid gap-3 border-t border-ink/10 pt-4 sm:grid-cols-3">
+          <label class="block">
+            <span class="field-label">Status</span>
+            <select class="field" data-field="status">${statusOptions}</select>
+          </label>
+          <label class="block">
+            <span class="field-label">Quote (${esc(SITE.currency || "₹")})</span>
+            <input class="field" data-field="quote" type="number" min="0" step="10" inputmode="numeric" value="${quote === null ? "" : quote}" />
+          </label>
+          <label class="block">
+            <span class="field-label">Advance paid (${esc(SITE.currency || "₹")})</span>
+            <input class="field" data-field="advance_paid" type="number" min="0" step="10" inputmode="numeric" value="${advance}" />
+          </label>
+        </div>
+
+        <label class="mt-3 block">
+          <span class="field-label">Notes</span>
+          <textarea class="field min-h-[3.5rem] resize-y" data-field="notes" rows="2" placeholder="Agreed size, payment date, anything to remember">${esc(row.notes)}</textarea>
+        </label>
+
+        <div class="mt-3 flex flex-wrap items-center gap-2">
+          <p class="mr-auto text-[0.7rem] text-ink-soft">${balance === null ? "Add a quote to see the balance." : `Balance due: ${money(balance)}`}</p>
+          <button class="btn btn-primary btn-sm" type="button" data-request-action="save">Save</button>
+          <button class="btn btn-outline btn-sm border-berry/40 text-berry hover:bg-berry hover:text-white" type="button" data-request-action="delete">Delete</button>
+        </div>
+      </article>`;
+  }
+
+  function renderRequests() {
+    const visible = state.requests.filter((row) => state.requestFilter === "all" || row.status === state.requestFilter);
+    const newCount = state.requests.filter((row) => row.status === "new").length;
+
+    els.requestBadge.textContent = String(newCount);
+    els.requestBadge.hidden = newCount === 0;
+    els.emptyRequests.hidden = visible.length > 0;
+    els.requestList.innerHTML = visible.map(requestCard).join("");
+    $$("[data-filter]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.filter === state.requestFilter));
+    });
+  }
+
+  async function saveRequest(id, card) {
+    const field = (name) => card.querySelector(`[data-field="${name}"]`);
+    const quoteText = field("quote").value.trim();
+    const quote = quoteText === "" ? null : Number(quoteText);
+    const advance = Number(field("advance_paid").value) || 0;
+
+    if (quote !== null && (!Number.isFinite(quote) || quote < 0)) {
+      status("The quote must be zero or more.", "error");
+      return;
+    }
+    if (advance < 0) {
+      status("Advance paid cannot be negative.", "error");
+      return;
+    }
+
+    const payload = {
+      status: field("status").value,
+      quote,
+      advance_paid: advance,
+      notes: field("notes").value.trim(),
+    };
+
+    try {
+      const response = await apiFetch(`/rest/v1/${encodeURIComponent(REQUESTS_TABLE)}?id=eq.${encodeURIComponent(id)}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Prefer: "return=minimal" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(await readError(response));
+      status("Request saved.");
+      await loadRequests();
+    } catch (error) {
+      status(error.message || "Could not save the request.", "error");
+    }
+  }
+
+  async function deleteRequest(id) {
+    const row = state.requests.find((item) => item.id === id);
+    if (!row) return;
+    if (!window.confirm(`Delete the request from “${row.name}”? This cannot be undone.`)) return;
+    try {
+      const response = await apiFetch(`/rest/v1/${encodeURIComponent(REQUESTS_TABLE)}?id=eq.${encodeURIComponent(id)}`, {
+        method: "DELETE",
+        headers: { Prefer: "return=minimal" },
+      });
+      if (!response.ok) throw new Error(await readError(response));
+      state.requests = state.requests.filter((item) => item.id !== id);
+      renderRequests();
+      status("Request deleted.");
+    } catch (error) {
+      status(error.message || "Could not delete the request.", "error");
+    }
+  }
+
+  function setTab(tab) {
+    state.tab = tab;
+    $$("[data-tab]").forEach((button) => {
+      if (button.dataset.tab === tab) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+    els.menuPanel.hidden = tab !== "menu";
+    els.requestsPanel.hidden = tab !== "requests";
+    if (tab === "requests") loadRequests();
+  }
+
   async function importStarter() {
     if (!window.confirm("Import the 88 starter cakes into Supabase? Existing codes will be updated.")) return;
     els.importBtn.disabled = true;
@@ -629,7 +847,25 @@
   ------------------------------------------------------------------------ */
   function setupEvents() {
     els.addCakeBtn.addEventListener("click", () => openEditor(null));
-    els.refreshBtn.addEventListener("click", () => loadCakes());
+    els.refreshBtn.addEventListener("click", () => (state.tab === "requests" ? loadRequests() : loadCakes()));
+
+    $$("[data-tab]").forEach((button) => {
+      button.addEventListener("click", () => setTab(button.dataset.tab));
+    });
+    $$("[data-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.requestFilter = button.dataset.filter;
+        renderRequests();
+      });
+    });
+    els.requestList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-request-action]");
+      if (!button) return;
+      const card = button.closest("[data-request-id]");
+      const id = card.dataset.requestId;
+      if (button.dataset.requestAction === "save") saveRequest(id, card);
+      if (button.dataset.requestAction === "delete") deleteRequest(id);
+    });
     els.importBtn.addEventListener("click", importStarter);
     els.cakeForm.addEventListener("submit", saveCake);
     els.cakeImage.addEventListener("input", () => previewImage(els.cakeImage.value.trim()));

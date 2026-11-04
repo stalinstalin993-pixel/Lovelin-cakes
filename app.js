@@ -1405,6 +1405,7 @@
   const PHOTO_MAX_SIDE = 1280;
   const PHOTO_QUALITY = 0.82;
   const PHOTO_BUCKET = "custom-requests";
+  const REQUESTS_TABLE = "custom_requests";
   const photos = [];
   let photoBusy = false;
 
@@ -1537,11 +1538,17 @@
       return { error: "Please add a delivery address (street and landmark).", focus: $("#photoAddress") };
     }
 
+    const digits = $("#photoPhone").value.replace(/\D/g, "");
+    if (digits && (digits.length < 10 || digits.length > 13)) {
+      return { error: "Check the WhatsApp number, or leave it blank.", focus: $("#photoPhone") };
+    }
+
     const details = {
       name,
       date,
       mode,
       address,
+      phone: digits,
       occasion: $("#photoOccasion").value,
       size: $("#photoSize").value.trim(),
       flavour: $("#photoFlavour").value.trim(),
@@ -1560,6 +1567,7 @@
     const lines = [];
     lines.push(`🎂 Custom Cake Request – ${SITE.name}`);
     lines.push(`Name: ${details.name}`);
+    if (details.phone) lines.push(`Phone: ${details.phone}`);
     const mode =
       details.mode === "delivery" ? `Delivery (${details.address.replace(/\s+/g, " ")})` : "Pickup";
     lines.push(`Date: ${displayDate(details.date)} | Mode: ${mode}`);
@@ -1580,6 +1588,47 @@
     lines.push("");
     lines.push("Please send a quote.");
     return lines.join("\n");
+  }
+
+  // Stores the request so the bakery can track it in the admin. A failure here
+  // must not stop the WhatsApp hand-off, so errors are logged and ignored.
+  async function saveCustomRequest(details, links) {
+    if (!photoUploadReady()) return;
+    const sb = SITE.supabase;
+    const base = String(sb.url).replace(/\/$/, "");
+    const row = {
+      name: details.name,
+      needed_on: details.date,
+      mode: details.mode,
+      address: details.mode === "delivery" ? details.address : "",
+      phone: details.phone,
+      occasion: details.occasion,
+      size: details.size,
+      flavour: details.flavour,
+      cake_message: details.message,
+      eggless: details.eggless,
+      changes: details.changes,
+      photos: links,
+    };
+    try {
+      const response = await fetchWithTimeout(
+        `${base}/rest/v1/${REQUESTS_TABLE}`,
+        {
+          method: "POST",
+          headers: {
+            apikey: sb.anonKey,
+            Authorization: `Bearer ${sb.anonKey}`,
+            "Content-Type": "application/json",
+            Prefer: "return=minimal",
+          },
+          body: JSON.stringify(row),
+        },
+        8000
+      );
+      if (!response.ok) console.warn("Custom request was not saved.", response.status);
+    } catch (error) {
+      console.warn("Custom request was not saved.", error);
+    }
   }
 
   async function handlePhotoRequest(event) {
@@ -1617,6 +1666,7 @@
       }
     }
 
+    await saveCustomRequest(details, links);
     const message = buildPhotoMessage(details, links, photoNote);
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
     if (tab) tab.location.href = url;

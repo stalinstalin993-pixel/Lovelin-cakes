@@ -89,6 +89,15 @@
 
       <!-- Admin app -->
       <section id="adminView" hidden>
+        <nav class="mb-6 flex border-b border-ink/10" aria-label="Baker's desk sections">
+          <button class="-mb-px mr-6 border-b-2 border-transparent pb-3 font-label text-[0.7rem] uppercase tracking-[0.12em] text-ink-soft aria-[current=page]:border-berry aria-[current=page]:text-ink" type="button" data-tab="menu" aria-current="page">Cake menu</button>
+          <button class="-mb-px border-b-2 border-transparent pb-3 font-label text-[0.7rem] uppercase tracking-[0.12em] text-ink-soft aria-[current=page]:border-berry aria-[current=page]:text-ink" type="button" data-tab="requests">
+            Custom requests
+            <span class="ml-1.5 rounded-full bg-berry px-1.5 py-0.5 text-[0.6rem] text-white" id="requestBadge" hidden></span>
+          </button>
+        </nav>
+
+        <div id="menuPanel">
         <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p class="eyebrow">Baker's desk</p>
@@ -130,6 +139,28 @@
         <div class="mt-6 rounded-2xl border border-dashed border-ink/25 p-8 text-center" id="emptyAdmin" hidden>
           <p class="font-display text-2xl">No cakes yet.</p>
           <p class="mt-2 text-sm text-ink-soft">Import the starter menu, or add your first cake.</p>
+        </div>
+        </div>
+
+        <div id="requestsPanel" hidden>
+          <p class="eyebrow">Custom requests</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl">Photo-based orders</h2>
+          <p class="mt-1 max-w-xl text-sm text-ink-soft">Newest first. Update the status and quote here as you reply on WhatsApp.</p>
+
+          <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter requests">
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="new" aria-pressed="false">New</button>
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="quoted" aria-pressed="false">Quoted</button>
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="confirmed" aria-pressed="false">Confirmed</button>
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="done" aria-pressed="false">Done</button>
+            <button class="btn btn-outline btn-sm aria-[pressed=true]:bg-ink aria-[pressed=true]:text-sage" type="button" data-filter="cancelled" aria-pressed="false">Cancelled</button>
+          </div>
+
+          <div class="mt-5 grid gap-3 xl:grid-cols-2" id="requestList" aria-live="polite"></div>
+          <div class="mt-6 rounded-2xl border border-dashed border-ink/25 p-8 text-center" id="emptyRequests" hidden>
+            <p class="font-display text-2xl">No custom requests here.</p>
+            <p class="mt-2 text-sm text-ink-soft">Requests from the Custom order form appear here as soon as they are sent.</p>
+          </div>
         </div>
       </section>
     </main>
