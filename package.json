@@ -1,0 +1,21 @@
+{
+  "name": "pistachio-and-petal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pistachio & Petal — a mobile-first home bakery storefront with WhatsApp ordering.",
+  "scripts": {
+    "build": "node scripts/sync-fallback.js && tailwindcss -i ./src/input.css -o ./styles.css --minify && node scripts/minify-js.js",
+    "build:netlify": "npm run build && node scripts/copy-dist.js",
+    "dev": "npm run build && node scripts/serve.js",
+    "assets": "node scripts/generate-assets.js",
+    "catalog": "node scripts/generate-pdf-catalog.js",
+    "sync-fallback": "node scripts/sync-fallback.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.4",
+    "esbuild": "^0.28.2",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.4"
+  }
+}

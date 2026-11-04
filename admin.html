@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Baker's desk | LC Homemade</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#F3F7F1" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="min-h-dvh bg-sage">
+    <header class="site-header">
+      <div class="container-page flex min-h-[4.5rem] items-center justify-between gap-3">
+        <a href="index.html" class="flex min-h-11 items-center gap-2.5">
+          <img src="images/logo.svg" alt="" width="42" height="42" />
+          <span class="leading-none">
+            <span class="block font-display text-[1.15rem] font-medium tracking-tight">LC Homemade</span>
+            <span class="mt-1 block font-label text-[0.56rem] uppercase tracking-[0.2em] text-ink-soft">Baker's desk</span>
+          </span>
+        </a>
+        <div class="flex items-center gap-2">
+          <a class="btn btn-outline btn-sm hidden sm:inline-flex" href="index.html" target="_blank" rel="noopener">View storefront</a>
+          <button class="btn btn-ink btn-sm" id="signOutBtn" type="button" hidden>Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container-page py-8 sm:py-12">
+      <!-- Setup warning -->
+      <section class="mx-auto max-w-2xl rounded-[1.5rem] border border-berry/25 bg-white p-6 sm:p-8" id="configWarning" hidden>
+        <p class="eyebrow">One-time setup</p>
+        <h1 class="mt-3 font-display text-3xl">Connect Supabase to use the admin.</h1>
+        <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+          The storefront is running from <code class="rounded bg-sage-deep px-1.5 py-0.5 font-label text-[0.75rem]">cakes.json</code>.
+          To edit cakes from this page, add your Supabase project URL and anon key to
+          <code class="rounded bg-sage-deep px-1.5 py-0.5 font-label text-[0.75rem]">site.config.js</code>, then run
+          <code class="rounded bg-sage-deep px-1.5 py-0.5 font-label text-[0.75rem]">supabase/setup.sql</code> in the SQL editor.
+        </p>
+        <pre class="mt-4 overflow-x-auto rounded-xl bg-ink p-4 font-label text-[0.7rem] leading-relaxed text-sage"><code>supabase: {
+  url: "https://YOUR-PROJECT.supabase.co",
+  anonKey: "YOUR-ANON-KEY",
+  table: "cakes",
+  bucket: "cake-photos",
+}</code></pre>
+        <p class="mt-4 text-sm text-ink-soft">Full instructions are in <code class="rounded bg-sage-deep px-1.5 py-0.5 font-label text-[0.75rem]">README.md</code> → Admin setup.</p>
+      </section>
+
+      <!-- Sign in -->
+      <section class="mx-auto flex max-w-5xl flex-col items-center gap-8 py-6 lg:flex-row lg:items-stretch lg:gap-6" id="authView" hidden>
+        <div class="flex-1 rounded-[1.5rem] border border-ink/12 bg-white p-6 sm:p-8">
+          <p class="eyebrow">Private area</p>
+          <h1 class="mt-3 font-display text-4xl leading-tight">Sign in to the baker's desk.</h1>
+          <p class="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
+            Add, edit and reorder cakes. Changes appear on the storefront immediately when Supabase is connected.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm text-ink-soft">
+            <li class="flex gap-2"><span class="text-berry" aria-hidden="true">✦</span> Upload cake photos to Supabase Storage.</li>
+            <li class="flex gap-2"><span class="text-berry" aria-hidden="true">✦</span> Toggle Trending and New arrival tags.</li>
+            <li class="flex gap-2"><span class="text-berry" aria-hidden="true">✦</span> Reorder the menu with one click.</li>
+          </ul>
+        </div>
+
+        <div class="w-full flex-1 rounded-[1.5rem] border border-ink/12 bg-white p-6 sm:p-8 lg:max-w-md">
+          <h2 class="font-display text-2xl">Welcome back</h2>
+          <form class="mt-5 space-y-4" id="loginForm" novalidate>
+            <div>
+              <label class="field-label" for="loginEmail">Email</label>
+              <input class="field" id="loginEmail" type="email" autocomplete="username" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label class="field-label" for="loginPassword">Password</label>
+              <input class="field" id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" required />
+            </div>
+            <p class="text-sm text-berry" id="loginError" role="alert" hidden></p>
+            <button class="btn btn-primary w-full" id="loginBtn" type="submit">Sign in</button>
+          </form>
+          <p class="mt-4 text-[0.7rem] leading-relaxed text-ink-soft">
+            Use the email and password you created under Supabase → Authentication → Users.
+            This page never sees your password after sign-in.
+          </p>
+        </div>
+      </section>
+
+      <!-- Admin app -->
+      <section id="adminView" hidden>
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p class="eyebrow">Baker's desk</p>
+            <h1 class="mt-3 font-display text-3xl sm:text-4xl">Your cake menu</h1>
+            <p class="mt-1 text-sm text-ink-soft">Signed in as <span id="adminEmail" class="font-medium text-ink">—</span></p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button class="btn btn-outline btn-sm" id="refreshBtn" type="button">Refresh</button>
+            <button class="btn btn-butter btn-sm" id="importBtn" type="button" hidden>Import starter menu</button>
+            <button class="btn btn-primary btn-sm" id="addCakeBtn" type="button">+ Add a cake</button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-3 gap-3">
+          <div class="note-card p-3 sm:p-4">
+            <p class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-ink-soft">Cakes</p>
+            <p class="mt-1 font-display text-2xl sm:text-3xl" id="totalCakes">—</p>
+          </div>
+          <div class="note-card p-3 sm:p-4">
+            <p class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-ink-soft">Trending</p>
+            <p class="mt-1 font-display text-2xl sm:text-3xl" id="trendingCount">—</p>
+          </div>
+          <div class="note-card p-3 sm:p-4">
+            <p class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-ink-soft">New</p>
+            <p class="mt-1 font-display text-2xl sm:text-3xl" id="newCount">—</p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <label class="search-wrap block flex-1" for="adminSearch">
+            <span class="sr-only">Search cakes</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4 4" stroke-linecap="round" /></svg>
+            <input class="field" id="adminSearch" type="search" placeholder="Search by name or code" autocomplete="off" />
+          </label>
+          <p class="hidden rounded-xl bg-butter px-3 py-2 text-sm text-ink" id="adminStatus" role="status"></p>
+        </div>
+
+        <div class="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3" id="cakeList" aria-live="polite"></div>
+        <div class="mt-6 rounded-2xl border border-dashed border-ink/25 p-8 text-center" id="emptyAdmin" hidden>
+          <p class="font-display text-2xl">No cakes yet.</p>
+          <p class="mt-2 text-sm text-ink-soft">Import the starter menu, or add your first cake.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cake editor -->
+    <div class="overlay" id="cakeModal" aria-hidden="true">
+      <div class="overlay__backdrop" data-close-editor></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="cakeModalTitle">
+        <button class="modal-close" type="button" data-close-editor aria-label="Close cake editor">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" /></svg>
+        </button>
+        <form class="p-5 sm:p-7" id="cakeForm" novalidate>
+          <p class="eyebrow">Menu editor</p>
+          <h2 class="mt-2 font-display text-3xl" id="cakeModalTitle">Add a cake</h2>
+          <input type="hidden" id="cakeId" />
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="field-label" for="cakeCode">Cake code</label>
+              <input class="field" id="cakeCode" type="text" maxlength="12" placeholder="BD09" required />
+              <p class="mt-1 text-[0.66rem] text-ink-soft">Short, unique, uppercase. Shown on the card and invoice.</p>
+            </div>
+            <div>
+              <label class="field-label" for="cakeName">Name</label>
+              <input class="field" id="cakeName" type="text" placeholder="Garden Party Cake" required />
+            </div>
+            <div>
+              <label class="field-label" for="cakeCategory">Category</label>
+              <select class="field" id="cakeCategory" required>
+                <option value="signature">Signature</option>
+                <option value="trending">Trending</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="fruit">Fruit</option>
+                <option value="premium">Premium</option>
+                <option value="cheesecakes">Cheesecakes</option>
+                <option value="special-occasion">Special Occasion</option>
+                <option value="birthday-boy">Birthday Boy</option>
+                <option value="birthday-girl">Birthday Girl</option>
+                <option value="wedding-anniversary">Wedding &amp; Anniversary</option>
+                <option value="brownies-cupcakes">Brownies &amp; Cupcakes</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="cakeSortOrder">Sort order</label>
+              <input class="field" id="cakeSortOrder" type="number" min="1" step="1" placeholder="12" />
+            </div>
+            <div>
+              <label class="field-label" for="cakePrice">Price at minimum weight (₹)</label>
+              <input class="field" id="cakePrice" type="number" min="0" step="1" placeholder="1200" required />
+            </div>
+            <div>
+              <label class="field-label" for="cakeMinWeight">Minimum weight (kg)</label>
+              <input class="field" id="cakeMinWeight" type="number" min="0.5" step="0.5" placeholder="1" required />
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="field-label" for="cakeImage">Photo URL</label>
+            <input class="field" id="cakeImage" type="url" placeholder="https://… or images/cakes/BD09.webp" />
+            <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
+              <input class="field file:mr-3 file:rounded-full file:border-0 file:bg-butter file:px-3 file:py-1.5 file:font-label file:text-xs" id="cakeUpload" type="file" accept="image/webp,image/jpeg,image/png" />
+              <span class="text-[0.66rem] text-ink-soft">Uploads to Supabase Storage when connected.</span>
+            </div>
+            <div class="mt-3 flex items-start gap-3">
+              <img class="h-24 w-20 rounded-xl border border-ink/10 bg-sage-deep object-cover" id="cakeImagePreview" src="images/fallback-cake.webp" alt="Cake preview" width="160" height="192" />
+              <div class="text-[0.68rem] text-ink-soft">
+                <p>Recommended: 800 × 1000 px, WebP, under 300 KB.</p>
+                <p class="mt-1">Leave blank to use the fallback illustration.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <label class="option cursor-pointer" for="cakeFlavour">
+              <input class="h-4 w-4 accent-berry" id="cakeFlavour" type="checkbox" checked />
+              <span class="text-sm">Offer flavour choices</span>
+            </label>
+            <label class="option cursor-pointer" for="cakeNoEggless">
+              <input class="h-4 w-4 accent-berry" id="cakeNoEggless" type="checkbox" />
+              <span class="text-sm">Contains egg (no eggless option)</span>
+            </label>
+          </div>
+
+          <div class="mt-4">
+            <label class="field-label" for="cakeTags">Tags</label>
+            <input class="field" id="cakeTags" type="text" placeholder="trending, new, bestseller, kids, premium" />
+            <p class="mt-1 text-[0.66rem] text-ink-soft">Comma-separated. `trending`, `new` and `bestseller` show as a badge.</p>
+          </div>
+
+          <p class="mt-4 rounded-xl bg-berry/10 px-3 py-2 text-sm text-berry" id="cakeFormError" role="alert" hidden></p>
+
+          <div class="mt-6 flex flex-col-reverse gap-2 border-t border-ink/10 pt-4 sm:flex-row sm:justify-end">
+            <button class="btn btn-outline" type="button" data-close-editor>Cancel</button>
+            <button class="btn btn-primary" id="saveCakeBtn" type="submit">Save cake</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="site.config.js" defer></script>
+    <script src="admin.min.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1218 @@
+[
+  {
+    "code": "SG01",
+    "name": "Pistachio Rose Cloud",
+    "category": "signature",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/SG01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller",
+      "premium"
+    ],
+    "order": 1
+  },
+  {
+    "code": "SG02",
+    "name": "Vanilla Bean Classic",
+    "category": "signature",
+    "price": 950,
+    "minWeight": 1,
+    "image": "images/cakes/SG02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 2
+  },
+  {
+    "code": "SG03",
+    "name": "Belgian Chocolate Gâteau",
+    "category": "signature",
+    "price": 1350,
+    "minWeight": 1,
+    "image": "images/cakes/SG03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 3
+  },
+  {
+    "code": "SG04",
+    "name": "Lemon & Thyme Loaf",
+    "category": "signature",
+    "price": 750,
+    "minWeight": 0.5,
+    "image": "images/cakes/SG04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 4
+  },
+  {
+    "code": "SG05",
+    "name": "Strawberry Cream Bliss",
+    "category": "signature",
+    "price": 1150,
+    "minWeight": 1,
+    "image": "images/cakes/SG05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 5
+  },
+  {
+    "code": "SG06",
+    "name": "Salted Caramel Crunch",
+    "category": "signature",
+    "price": 1250,
+    "minWeight": 1,
+    "image": "images/cakes/SG06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending"
+    ],
+    "order": 6
+  },
+  {
+    "code": "SG07",
+    "name": "Mango Cloud Mousse",
+    "category": "signature",
+    "price": 1200,
+    "minWeight": 1,
+    "image": "images/cakes/SG07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "seasonal"
+    ],
+    "order": 7
+  },
+  {
+    "code": "SG08",
+    "name": "Blackcurrant Velvet",
+    "category": "signature",
+    "price": 1250,
+    "minWeight": 1,
+    "image": "images/cakes/SG08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 8
+  },
+  {
+    "code": "TR01",
+    "name": "Unicorn Cloud Cake",
+    "category": "trending",
+    "price": 1400,
+    "minWeight": 1,
+    "image": "images/cakes/TR01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "kids"
+    ],
+    "order": 9
+  },
+  {
+    "code": "TR02",
+    "name": "Vintage Piped Cake",
+    "category": "trending",
+    "price": 1600,
+    "minWeight": 1,
+    "image": "images/cakes/TR02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "premium"
+    ],
+    "order": 10
+  },
+  {
+    "code": "TR03",
+    "name": "Heart Bento Cake",
+    "category": "trending",
+    "price": 650,
+    "minWeight": 0.5,
+    "image": "images/cakes/TR03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "new"
+    ],
+    "order": 11
+  },
+  {
+    "code": "TR04",
+    "name": "Teddy Cloud Cake",
+    "category": "trending",
+    "price": 1350,
+    "minWeight": 1,
+    "image": "images/cakes/TR04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "kids"
+    ],
+    "order": 12
+  },
+  {
+    "code": "TR05",
+    "name": "Chrome Number Cake",
+    "category": "trending",
+    "price": 1800,
+    "minWeight": 1,
+    "image": "images/cakes/TR05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "premium"
+    ],
+    "order": 13
+  },
+  {
+    "code": "TR06",
+    "name": "Pressed Flower Cake",
+    "category": "trending",
+    "price": 1700,
+    "minWeight": 1,
+    "image": "images/cakes/TR06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "premium"
+    ],
+    "order": 14
+  },
+  {
+    "code": "TR07",
+    "name": "Broken Heart Cake",
+    "category": "trending",
+    "price": 1250,
+    "minWeight": 1,
+    "image": "images/cakes/TR07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "new"
+    ],
+    "order": 15
+  },
+  {
+    "code": "TR08",
+    "name": "Happy Pill Bento",
+    "category": "trending",
+    "price": 600,
+    "minWeight": 0.5,
+    "image": "images/cakes/TR08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "trending",
+      "new"
+    ],
+    "order": 16
+  },
+  {
+    "code": "CH01",
+    "name": "Triple Choco Fudge",
+    "category": "chocolate",
+    "price": 1300,
+    "minWeight": 1,
+    "image": "images/cakes/CH01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 17
+  },
+  {
+    "code": "CH02",
+    "name": "Belgian Truffle",
+    "category": "chocolate",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/CH02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 18
+  },
+  {
+    "code": "CH03",
+    "name": "Ferrero Crunch",
+    "category": "chocolate",
+    "price": 1550,
+    "minWeight": 1,
+    "image": "images/cakes/CH03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 19
+  },
+  {
+    "code": "CH04",
+    "name": "Nutella Hazelnut",
+    "category": "chocolate",
+    "price": 1500,
+    "minWeight": 1,
+    "image": "images/cakes/CH04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 20
+  },
+  {
+    "code": "CH05",
+    "name": "Dark 70% Ganache",
+    "category": "chocolate",
+    "price": 1600,
+    "minWeight": 1,
+    "image": "images/cakes/CH05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 21
+  },
+  {
+    "code": "CH06",
+    "name": "Choco Lava",
+    "category": "chocolate",
+    "price": 1350,
+    "minWeight": 1,
+    "image": "images/cakes/CH06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 22
+  },
+  {
+    "code": "CH07",
+    "name": "Oreo Overload",
+    "category": "chocolate",
+    "price": 1400,
+    "minWeight": 1,
+    "image": "images/cakes/CH07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 23
+  },
+  {
+    "code": "CH08",
+    "name": "Mocha Walnut",
+    "category": "chocolate",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/CH08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 24
+  },
+  {
+    "code": "FR01",
+    "name": "Fresh Mango Gateau",
+    "category": "fruit",
+    "price": 1150,
+    "minWeight": 1,
+    "image": "images/cakes/FR01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "seasonal",
+      "bestseller"
+    ],
+    "order": 25
+  },
+  {
+    "code": "FR02",
+    "name": "Strawberry Cream",
+    "category": "fruit",
+    "price": 1150,
+    "minWeight": 1,
+    "image": "images/cakes/FR02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 26
+  },
+  {
+    "code": "FR03",
+    "name": "Pineapple Sunshine",
+    "category": "fruit",
+    "price": 950,
+    "minWeight": 1,
+    "image": "images/cakes/FR03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 27
+  },
+  {
+    "code": "FR04",
+    "name": "Black Forest",
+    "category": "fruit",
+    "price": 1050,
+    "minWeight": 1,
+    "image": "images/cakes/FR04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 28
+  },
+  {
+    "code": "FR05",
+    "name": "White Forest",
+    "category": "fruit",
+    "price": 1100,
+    "minWeight": 1,
+    "image": "images/cakes/FR05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 29
+  },
+  {
+    "code": "FR06",
+    "name": "Mixed Fruit Basket",
+    "category": "fruit",
+    "price": 1200,
+    "minWeight": 1,
+    "image": "images/cakes/FR06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 30
+  },
+  {
+    "code": "FR07",
+    "name": "Peach & Cream",
+    "category": "fruit",
+    "price": 1250,
+    "minWeight": 1,
+    "image": "images/cakes/FR07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "seasonal"
+    ],
+    "order": 31
+  },
+  {
+    "code": "FR08",
+    "name": "Lychee Rose",
+    "category": "fruit",
+    "price": 1350,
+    "minWeight": 1,
+    "image": "images/cakes/FR08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "new"
+    ],
+    "order": 32
+  },
+  {
+    "code": "PR01",
+    "name": "Saffron Kesar Pista",
+    "category": "premium",
+    "price": 1900,
+    "minWeight": 1,
+    "image": "images/cakes/PR01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "bestseller"
+    ],
+    "order": 33
+  },
+  {
+    "code": "PR02",
+    "name": "Rasamalai Royale",
+    "category": "premium",
+    "price": 1950,
+    "minWeight": 1,
+    "image": "images/cakes/PR02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "new"
+    ],
+    "order": 34
+  },
+  {
+    "code": "PR03",
+    "name": "Honey Almond Praline",
+    "category": "premium",
+    "price": 1800,
+    "minWeight": 1,
+    "image": "images/cakes/PR03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 35
+  },
+  {
+    "code": "PR04",
+    "name": "Blueberry Mascarpone",
+    "category": "premium",
+    "price": 1750,
+    "minWeight": 1,
+    "image": "images/cakes/PR04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 36
+  },
+  {
+    "code": "PR05",
+    "name": "Hazelnut Opera",
+    "category": "premium",
+    "price": 1900,
+    "minWeight": 1,
+    "image": "images/cakes/PR05.webp",
+    "flavourChoice": true,
+    "noEggless": true,
+    "tags": [
+      "premium"
+    ],
+    "order": 37
+  },
+  {
+    "code": "PR06",
+    "name": "Tiramisu Classico",
+    "category": "premium",
+    "price": 1850,
+    "minWeight": 1,
+    "image": "images/cakes/PR06.webp",
+    "flavourChoice": true,
+    "noEggless": true,
+    "tags": [
+      "premium"
+    ],
+    "order": 38
+  },
+  {
+    "code": "PR07",
+    "name": "Chocolate Praline Trio",
+    "category": "premium",
+    "price": 1950,
+    "minWeight": 1,
+    "image": "images/cakes/PR07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 39
+  },
+  {
+    "code": "PR08",
+    "name": "Pistachio & Berry",
+    "category": "premium",
+    "price": 2000,
+    "minWeight": 1,
+    "image": "images/cakes/PR08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "bestseller"
+    ],
+    "order": 40
+  },
+  {
+    "code": "CS01",
+    "name": "Classic New York",
+    "category": "cheesecakes",
+    "price": 1500,
+    "minWeight": 1,
+    "image": "images/cakes/CS01.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 41
+  },
+  {
+    "code": "CS02",
+    "name": "Biscoff Cheesecake",
+    "category": "cheesecakes",
+    "price": 1650,
+    "minWeight": 1,
+    "image": "images/cakes/CS02.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "trending"
+    ],
+    "order": 42
+  },
+  {
+    "code": "CS03",
+    "name": "Mango Cheesecake",
+    "category": "cheesecakes",
+    "price": 1550,
+    "minWeight": 1,
+    "image": "images/cakes/CS03.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "seasonal"
+    ],
+    "order": 43
+  },
+  {
+    "code": "CS04",
+    "name": "Blueberry Cheesecake",
+    "category": "cheesecakes",
+    "price": 1600,
+    "minWeight": 1,
+    "image": "images/cakes/CS04.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [],
+    "order": 44
+  },
+  {
+    "code": "CS05",
+    "name": "Strawberry Cheesecake",
+    "category": "cheesecakes",
+    "price": 1600,
+    "minWeight": 1,
+    "image": "images/cakes/CS05.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [],
+    "order": 45
+  },
+  {
+    "code": "CS06",
+    "name": "Dark Chocolate Cheesecake",
+    "category": "cheesecakes",
+    "price": 1750,
+    "minWeight": 1,
+    "image": "images/cakes/CS06.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 46
+  },
+  {
+    "code": "CS07",
+    "name": "Pistachio Cheesecake",
+    "category": "cheesecakes",
+    "price": 1800,
+    "minWeight": 1,
+    "image": "images/cakes/CS07.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "new"
+    ],
+    "order": 47
+  },
+  {
+    "code": "CS08",
+    "name": "Basque Burnt Cheesecake",
+    "category": "cheesecakes",
+    "price": 1700,
+    "minWeight": 1,
+    "image": "images/cakes/CS08.webp",
+    "flavourChoice": false,
+    "noEggless": true,
+    "tags": [],
+    "order": 48
+  },
+  {
+    "code": "SO01",
+    "name": "Engagement Blush",
+    "category": "special-occasion",
+    "price": 3200,
+    "minWeight": 1.5,
+    "image": "images/cakes/SO01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 49
+  },
+  {
+    "code": "SO02",
+    "name": "Anniversary Gold",
+    "category": "special-occasion",
+    "price": 2600,
+    "minWeight": 1.5,
+    "image": "images/cakes/SO02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 50
+  },
+  {
+    "code": "SO03",
+    "name": "Baby Shower Cloud",
+    "category": "special-occasion",
+    "price": 2200,
+    "minWeight": 1,
+    "image": "images/cakes/SO03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "new"
+    ],
+    "order": 51
+  },
+  {
+    "code": "SO04",
+    "name": "Farewell Fiesta",
+    "category": "special-occasion",
+    "price": 1800,
+    "minWeight": 1,
+    "image": "images/cakes/SO04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 52
+  },
+  {
+    "code": "SO05",
+    "name": "Congratulations Cake",
+    "category": "special-occasion",
+    "price": 1900,
+    "minWeight": 1,
+    "image": "images/cakes/SO05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 53
+  },
+  {
+    "code": "SO06",
+    "name": "Housewarming Bloom",
+    "category": "special-occasion",
+    "price": 2000,
+    "minWeight": 1,
+    "image": "images/cakes/SO06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 54
+  },
+  {
+    "code": "SO07",
+    "name": "Retirement Days",
+    "category": "special-occasion",
+    "price": 2100,
+    "minWeight": 1,
+    "image": "images/cakes/SO07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [],
+    "order": 55
+  },
+  {
+    "code": "SO08",
+    "name": "Festival Special",
+    "category": "special-occasion",
+    "price": 1850,
+    "minWeight": 1,
+    "image": "images/cakes/SO08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "seasonal"
+    ],
+    "order": 56
+  },
+  {
+    "code": "BB01",
+    "name": "Dino Adventure",
+    "category": "birthday-boy",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BB01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "bestseller"
+    ],
+    "order": 57
+  },
+  {
+    "code": "BB02",
+    "name": "Space Explorer",
+    "category": "birthday-boy",
+    "price": 1500,
+    "minWeight": 1,
+    "image": "images/cakes/BB02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 58
+  },
+  {
+    "code": "BB03",
+    "name": "Football Fever",
+    "category": "birthday-boy",
+    "price": 1400,
+    "minWeight": 1,
+    "image": "images/cakes/BB03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 59
+  },
+  {
+    "code": "BB04",
+    "name": "Racing Car",
+    "category": "birthday-boy",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BB04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 60
+  },
+  {
+    "code": "BB05",
+    "name": "Superhero Cape",
+    "category": "birthday-boy",
+    "price": 1500,
+    "minWeight": 1,
+    "image": "images/cakes/BB05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 61
+  },
+  {
+    "code": "BB06",
+    "name": "Jungle Safari",
+    "category": "birthday-boy",
+    "price": 1550,
+    "minWeight": 1,
+    "image": "images/cakes/BB06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "new"
+    ],
+    "order": 62
+  },
+  {
+    "code": "BB07",
+    "name": "Video Game",
+    "category": "birthday-boy",
+    "price": 1600,
+    "minWeight": 1,
+    "image": "images/cakes/BB07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "trending"
+    ],
+    "order": 63
+  },
+  {
+    "code": "BB08",
+    "name": "Robot Buddy",
+    "category": "birthday-boy",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BB08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 64
+  },
+  {
+    "code": "BD01",
+    "name": "Unicorn Dream Cake",
+    "category": "birthday-girl",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BD01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "bestseller"
+    ],
+    "order": 65
+  },
+  {
+    "code": "BD02",
+    "name": "Butterfly Meadow",
+    "category": "birthday-girl",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BD02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 66
+  },
+  {
+    "code": "BD03",
+    "name": "Mermaid Tail",
+    "category": "birthday-girl",
+    "price": 1550,
+    "minWeight": 1,
+    "image": "images/cakes/BD03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "trending"
+    ],
+    "order": 67
+  },
+  {
+    "code": "BD04",
+    "name": "Ballet Shoes",
+    "category": "birthday-girl",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BD04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 68
+  },
+  {
+    "code": "BD05",
+    "name": "Princess Crown",
+    "category": "birthday-girl",
+    "price": 1500,
+    "minWeight": 1,
+    "image": "images/cakes/BD05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 69
+  },
+  {
+    "code": "BD06",
+    "name": "Flower Garden",
+    "category": "birthday-girl",
+    "price": 1400,
+    "minWeight": 1,
+    "image": "images/cakes/BD06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 70
+  },
+  {
+    "code": "BD07",
+    "name": "Rainbow Cloud",
+    "category": "birthday-girl",
+    "price": 1450,
+    "minWeight": 1,
+    "image": "images/cakes/BD07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids",
+      "new"
+    ],
+    "order": 71
+  },
+  {
+    "code": "BD08",
+    "name": "Teddy Picnic",
+    "category": "birthday-girl",
+    "price": 1400,
+    "minWeight": 1,
+    "image": "images/cakes/BD08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 72
+  },
+  {
+    "code": "WA01",
+    "name": "Two-Tier Ivory",
+    "category": "wedding-anniversary",
+    "price": 3800,
+    "minWeight": 2,
+    "image": "images/cakes/WA01.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "bestseller"
+    ],
+    "order": 73
+  },
+  {
+    "code": "WA02",
+    "name": "Minimal Heart",
+    "category": "wedding-anniversary",
+    "price": 2800,
+    "minWeight": 1.5,
+    "image": "images/cakes/WA02.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "new"
+    ],
+    "order": 74
+  },
+  {
+    "code": "WA03",
+    "name": "Gold Leaf Romance",
+    "category": "wedding-anniversary",
+    "price": 3500,
+    "minWeight": 2,
+    "image": "images/cakes/WA03.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 75
+  },
+  {
+    "code": "WA04",
+    "name": "Floral Arch",
+    "category": "wedding-anniversary",
+    "price": 3600,
+    "minWeight": 2,
+    "image": "images/cakes/WA04.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "trending"
+    ],
+    "order": 76
+  },
+  {
+    "code": "WA05",
+    "name": "Red Velvet Duo",
+    "category": "wedding-anniversary",
+    "price": 3200,
+    "minWeight": 1.5,
+    "image": "images/cakes/WA05.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 77
+  },
+  {
+    "code": "WA06",
+    "name": "Pearl Cascade",
+    "category": "wedding-anniversary",
+    "price": 3700,
+    "minWeight": 2,
+    "image": "images/cakes/WA06.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 78
+  },
+  {
+    "code": "WA07",
+    "name": "Vintage Lace",
+    "category": "wedding-anniversary",
+    "price": 3400,
+    "minWeight": 1.5,
+    "image": "images/cakes/WA07.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium"
+    ],
+    "order": 79
+  },
+  {
+    "code": "WA08",
+    "name": "Ever After",
+    "category": "wedding-anniversary",
+    "price": 3900,
+    "minWeight": 2,
+    "image": "images/cakes/WA08.webp",
+    "flavourChoice": true,
+    "noEggless": false,
+    "tags": [
+      "premium",
+      "bestseller"
+    ],
+    "order": 80
+  },
+  {
+    "code": "BC01",
+    "name": "Fudge Brownie Box",
+    "category": "brownies-cupcakes",
+    "price": 550,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC01.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 81
+  },
+  {
+    "code": "BC02",
+    "name": "Walnut Brownie Box",
+    "category": "brownies-cupcakes",
+    "price": 600,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC02.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [],
+    "order": 82
+  },
+  {
+    "code": "BC03",
+    "name": "Blondie Box",
+    "category": "brownies-cupcakes",
+    "price": 650,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC03.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "new"
+    ],
+    "order": 83
+  },
+  {
+    "code": "BC04",
+    "name": "Cupcake Box of Six",
+    "category": "brownies-cupcakes",
+    "price": 700,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC04.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 84
+  },
+  {
+    "code": "BC05",
+    "name": "Red Velvet Cupcakes",
+    "category": "brownies-cupcakes",
+    "price": 750,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC05.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [],
+    "order": 85
+  },
+  {
+    "code": "BC06",
+    "name": "Vanilla Confetti Cupcakes",
+    "category": "brownies-cupcakes",
+    "price": 700,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC06.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "kids"
+    ],
+    "order": 86
+  },
+  {
+    "code": "BC07",
+    "name": "Chocolate Truffle Cupcakes",
+    "category": "brownies-cupcakes",
+    "price": 750,
+    "minWeight": 0.5,
+    "image": "images/cakes/BC07.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [],
+    "order": 87
+  },
+  {
+    "code": "BC08",
+    "name": "Brownie & Cupcake Combo",
+    "category": "brownies-cupcakes",
+    "price": 900,
+    "minWeight": 1,
+    "image": "images/cakes/BC08.webp",
+    "flavourChoice": false,
+    "noEggless": false,
+    "tags": [
+      "bestseller"
+    ],
+    "order": 88
+  }
+]

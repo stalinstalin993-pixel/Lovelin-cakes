@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--include=dev"
+
+[context.deploy-preview]
+  command = "npm run build:netlify"
+
+# Security and cache headers live in the root _headers file so they can be
+# reviewed next to the static assets they apply to.

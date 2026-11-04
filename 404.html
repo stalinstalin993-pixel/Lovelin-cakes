@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Page not found | LC Homemade</title>
+    <meta name="description" content="This page has gone missing. Head back to the cake menu at LC Homemade, Coimbatore." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#F3F7F1" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container-page flex min-h-[4.5rem] items-center justify-between gap-4">
+        <a href="index.html" class="flex min-h-11 items-center gap-2.5">
+          <img src="images/logo.svg" alt="" width="42" height="42" />
+          <span class="leading-none">
+            <span class="block font-display text-[1.15rem] font-medium tracking-tight">LC Homemade</span>
+            <span class="mt-1 block font-label text-[0.56rem] uppercase tracking-[0.2em] text-ink-soft">Home bakery · Coimbatore</span>
+          </span>
+        </a>
+        <a class="btn btn-primary btn-sm" href="index.html#menu">Back to the menu</a>
+      </div>
+    </header>
+
+    <main id="main" class="hero hero-grain relative overflow-hidden">
+      <div class="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-pistachio/25 blur-3xl" aria-hidden="true"></div>
+      <div class="container-page grid min-h-[calc(100dvh-10rem)] items-center gap-10 py-14 lg:grid-cols-2 lg:gap-16">
+        <div class="max-w-xl">
+          <p class="eyebrow">Error 404</p>
+          <p class="mt-4 font-display text-[6rem] leading-[0.8] text-berry sm:text-[8rem]">404</p>
+          <h1 class="mt-5 text-[2.5rem] sm:text-5xl">This slice went <span class="squiggle">missing</span>.</h1>
+          <p class="mt-5 text-lg text-ink-soft">
+            The page you're looking for has been eaten, moved, or never made it out of the oven.
+            The cake menu is still warm.
+          </p>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a class="btn btn-primary" href="index.html#menu">Browse the cake menu</a>
+            <a
+              class="btn btn-outline"
+              href="https://wa.me/919876543210?text=Hi%20Pistachio%20%26%20Petal!%20I%20followed%20a%20broken%20link%20on%20your%20site."
+              target="_blank"
+              rel="noopener"
+              >Message the baker</a
+            >
+          </div>
+          <p class="mt-5 text-sm text-ink-soft">Or call <a class="underline decoration-berry/50 underline-offset-4" href="tel:+919876543210">+91 98765 43210</a>.</p>
+        </div>
+
+        <div class="mx-auto w-full max-w-[26rem] relative">
+          <div class="arch aspect-[4/5] relative">
+            <img
+              src="images/fallback-cake.webp"
+              alt="A pistachio celebration cake with buttercream and flowers"
+              width="800"
+              height="1000"
+              decoding="async"
+            />
+            <span class="absolute left-4 top-4 rounded-full border border-ink/15 bg-white/90 px-3 py-1 font-label text-[0.62rem] uppercase tracking-[0.14em]">Still fresh</span>
+          </div>
+          <div class="hero-badge -bottom-5 left-4 right-4 justify-center sm:left-8 sm:right-8">
+            <span aria-hidden="true" class="text-berry">★</span>
+            <span>4.9 on Google · 128 reviews</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-ink/10">
+      <div class="container-page flex flex-col items-center justify-between gap-2 py-5 text-center font-label text-[0.62rem] uppercase tracking-[0.1em] text-ink-soft sm:flex-row sm:text-left">
+        <p>© <span id="year">2026</span> LC Homemade</p>
+        <a class="inline-flex min-h-11 items-center underline decoration-ink/30 underline-offset-4" href="index.html">Back to home</a>
+      </div>
+    </footer>
+
+    <script src="site.config.js" defer></script>
+    <script src="festive.min.js" defer></script>
+    <script src="404.min.js" defer></script>
+  </body>
+</html>

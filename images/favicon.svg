@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="LC Homemade">
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#C9A227" stroke-width="3.2"/>
+  <circle cx="256" cy="256" r="208" fill="none" stroke="#D4AF37" stroke-width="2.2"/>
+  <circle cx="256" cy="256" r="192" fill="none" stroke="#E8C547" stroke-width="1.4" opacity="0.85"/>
+  <text x="256" y="248" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="168" font-weight="500" fill="#1A120C" letter-spacing="-6">LC</text>
+  <text x="256" y="292" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="9" fill="#8A5A12">HOMEMADE</text>
+  <g transform="translate(196 318)">
+    <ellipse cx="60" cy="46" rx="46" ry="16" fill="none" stroke="#C45C6A" stroke-width="2.2"/>
+    <path d="M22 46c0-16 17-28 38-28s38 12 38 28" fill="#FFF6EA" stroke="#C45C6A" stroke-width="2.2"/>
+    <path d="M78 22c8-10 18-14 28-12" fill="none" stroke="#2F8F78" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="108" cy="8" r="5" fill="#E23D4A"/>
+    <circle cx="48" cy="34" r="3.2" fill="#F4A3B0"/>
+    <circle cx="62" cy="30" r="2.6" fill="#F6C445"/>
+    <circle cx="74" cy="34" r="2.4" fill="#7EC8A3"/>
+  </g>
+</svg>
