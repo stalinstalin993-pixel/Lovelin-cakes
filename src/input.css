@@ -1579,9 +1579,11 @@
 
   /* --- Footer ----------------------------------------------------------- */
   .site-footer {
-    background: #18100a;
+    position: relative;
+    z-index: 41; /* above the festive overlay (z-40) so the footer stays a flat colour */
+    background: #4a1626;
     color: #faf6f0;
-    border-top: 1px solid rgba(184, 134, 40, 0.3);
+    border-top: 1px solid rgba(232, 190, 110, 0.35);
   }
 
   .site-footer a {
