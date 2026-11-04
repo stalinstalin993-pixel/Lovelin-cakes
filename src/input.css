@@ -1804,6 +1804,58 @@
   }
 }
 
+/* --- Phone polish (below 640px): readable labels, tidy card rows ----------- */
+@media (max-width: 639px) {
+  /* Keep the header tagline on one line */
+  .site-header .leading-none > span:last-child {
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    font-size: 0.6rem;
+  }
+
+  /* Card footer: price and eggless tag may wrap instead of squeezing */
+  .card-body .flex.items-center {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+
+  .price span {
+    display: block;
+    margin-left: 0;
+    font-size: 0.74rem;
+  }
+
+  /* Keep the order buttons level across a row of cards */
+  .cake-card .card-body .btn-sm {
+    margin-top: auto;
+  }
+
+  .veg-dot {
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .card-body .btn-sm {
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+
+  /* Badges and stat labels: at least ~11px */
+  .code-badge,
+  .tag-badge {
+    font-size: 0.68rem;
+  }
+
+  .stat-pill span {
+    font-size: 0.72rem;
+  }
+
+  /* Leave room under the footer so the WhatsApp button never covers the legal line */
+  .site-footer {
+    padding-bottom: 5rem;
+  }
+}
+
 @media print {
   .site-header,
   .float-wa,
