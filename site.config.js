@@ -26,9 +26,9 @@ window.SITE = {
     "https://www.google.com/maps?q=R.S.%20Puram%2C%20Coimbatore%2C%20Tamil%20Nadu%20641002&output=embed", // TODO
 
   // --- Contact --------------------------------------------------------------
-  phoneDisplay: "+91 98765 43210", // TODO
-  phoneHref: "+919876543210",
-  whatsapp: "919876543210", // TODO: country code + number, digits only
+  phoneDisplay: "+91 90807 24358", // TODO
+  phoneHref: "+919080724358",
+  whatsapp: "919080724358", // TODO: country code + number, digits only
   email: "hello@lchomemade.in",
   instagram: "https://instagram.com/lchomemade", // TODO
   facebook: "https://facebook.com/lchomemade", // TODO
@@ -110,8 +110,9 @@ window.SITE = {
   // --- Supabase (optional admin) -------------------------------------------
   // Leave blank to use cakes.json only. See README > Admin setup.
   supabase: {
-    url: "", // e.g. https://xxxxxxxxxxxx.supabase.co
-    anonKey: "",
+    url: "https://ihjteigxyrxlqibtgrsa.supabase.co",
+    anonKey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloanRlaWd4eXJ4bHFpYnRncnNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3NDE4NTMsImV4cCI6MjEwOTMxNzg1M30.hB55-GMZhDl8ibq0daEQwp0iY7Pjnj43IopYSYZE3qg",
     table: "cakes",
     bucket: "cake-photos",
   },
