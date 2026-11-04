@@ -1,29 +1,29 @@
 /*
- * Lovely Home Made Cakes — single source of business settings.
+ * The Red Cherry Cakes — single source of business settings.
  * Replace the values marked TODO with the bakery's real details before launch.
  * This file is loaded on every page before app.js / festive.js / admin.js.
  */
 window.SITE = {
   // --- Identity -------------------------------------------------------------
-  name: "Lovely Home Made Cakes", // TODO: bakery name
-  shortName: "LHC",
+  name: "The Red Cherry Cakes", // TODO: bakery name
+  shortName: "RCC",
   tagline: "Baked slowly, celebrated loudly.",
   owner: "Ananya",
   ownerRole: "Baker & founder",
   tamilLine: "அன்போடு சுட்ட இனிப்புகள்",
 
   // --- Location -------------------------------------------------------------
-  town: "Kanyakumari", // TODO: town
-  district: "Kanyakumari",
+  town: "Tirunelveli", // TODO: town
+  district: "Tirunelveli",
   state: "Tamil Nadu",
-  pin: "629702",
+  pin: "627001",
   country: "IN",
-  address: "Kanyakumari, Tamil Nadu 629702", // TODO
-  geo: { lat: 8.0883, lng: 77.5385 },
+  address: "Tirunelveli, Tamil Nadu 627001", // TODO
+  geo: { lat: 8.7139, lng: 77.7567 },
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Kanyakumari+Tamil+Nadu+629702", // TODO
+    "https://www.google.com/maps/search/?api=1&query=Tirunelveli+Tamil+Nadu+627001", // TODO
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Kanyakumari%2C%20Tamil%20Nadu%20629702&output=embed", // TODO
+    "https://www.google.com/maps?q=Tirunelveli%2C%20Tamil%20Nadu%20627001&output=embed", // TODO
 
   // --- Contact --------------------------------------------------------------
   phoneDisplay: "+91 90807 24358", // TODO
@@ -33,7 +33,7 @@ window.SITE = {
   instagram: "https://instagram.com/lchomemade", // TODO
   facebook: "https://facebook.com/lchomemade", // TODO
   reviewUrl:
-    "https://www.google.com/maps/search/?api=1&query=Lovely+Home+Made+Cakes+Kanyakumari", // TODO: Google reviews link
+    "https://www.google.com/maps/search/?api=1&query=The+Red+Cherry+Cakes+Tirunelveli", // TODO: Google reviews link
   reviewRating: "4.9",
   reviewCount: "128",
 
@@ -44,7 +44,7 @@ window.SITE = {
   deliveryHours: { opens: "10:00", closes: "21:00" },
 
   // --- Orders ---------------------------------------------------------------
-  deliveryNote: "Free within 5 km of Kanyakumari. ₹50 beyond 5 km.", // TODO
+  deliveryNote: "Free within 5 km of Tirunelveli. ₹50 beyond 5 km.", // TODO
   deliveryFee: 50,
   freeDeliveryKm: 5,
   advanceNotice: "Order 1–2 days ahead. Same-day for selected cakes.",
@@ -79,31 +79,31 @@ window.SITE = {
       quote:
         "The pistachio rose cake was the quiet star of my mother's 60th. Not too sweet, and the rose was so delicate.",
       name: "Meera R.",
-      detail: "Birthday cake · Kanyakumari",
+      detail: "Birthday cake · Tirunelveli",
     },
     {
       quote:
         "Ordered a last-minute eggless chocolate cake for my son. It arrived on time and tasted like a proper bakery bake.",
       name: "Karthik S.",
-      detail: "Same-day order · Nagercoil",
+      detail: "Same-day order · Palayamkottai",
     },
     {
       quote:
         "We sent a blurry inspiration photo and got back a design that felt even more 'us'. Guests kept asking where it was from.",
       name: "Divya & Arjun",
-      detail: "Engagement cake · Suchindram",
+      detail: "Engagement cake · Melapalayam",
     },
     {
       quote:
         "The brownie boxes are dangerously good. We now order one every other week, and the packaging is lovely.",
       name: "Nivetha M.",
-      detail: "Brownie box · Kottar",
+      detail: "Brownie box · Thatchanallur",
     },
     {
       quote:
         "Clear communication on WhatsApp, honest pricing, and a cake that looked exactly like the mock-up. Rare combination.",
       name: "Rahul V.",
-      detail: "Custom cake · Marthandam",
+      detail: "Custom cake · Tirunelveli Junction",
     },
   ],
 

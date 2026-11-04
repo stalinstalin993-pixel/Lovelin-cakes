@@ -1,5 +1,5 @@
 /*
- * Lovely Home Made Cakes — storefront logic (vanilla JS).
+ * The Red Cherry Cakes — storefront logic (vanilla JS).
  * No build step for this file. The block between FALLBACK markers is generated
  * from cakes.json by `npm run sync-fallback` so the site still works offline.
  */

@@ -41,17 +41,7 @@
   color: #f6e7b4;
 }
 
-/* --- Deepavali: warm diya glow ------------------------------------------ */
-.theme-deepavali #festiveLayer {
-  background-image:
-    radial-gradient(ellipse at 12% 100%, rgba(246, 231, 180, 0.5), transparent 42%),
-    radial-gradient(ellipse at 88% 100%, rgba(246, 231, 180, 0.42), transparent 40%),
-    radial-gradient(circle at 22% 88%, rgba(255, 210, 120, 0.65) 0 3px, transparent 4px),
-    radial-gradient(circle at 50% 92%, rgba(255, 210, 120, 0.55) 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 78% 86%, rgba(255, 210, 120, 0.6) 0 3px, transparent 4px);
-  animation: festive-glow 6s ease-in-out infinite;
-}
-
+/* --- Deepavali: announcement bar only (no page overlay) ----------------- */
 .theme-deepavali .announcement {
   background: #4a2b3a;
   color: #fbf4e8;

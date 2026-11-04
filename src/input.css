@@ -46,10 +46,10 @@
   --color-sage-deep: #f2e8dc;
   --color-butter: #fae8be;
   --color-butter-deep: #d89f36;
-  --color-berry: #b83348;
-  --color-berry-deep: #8c2032;
+  --color-berry: #a11d3d;
+  --color-berry-deep: #7a1630;
   --color-paper: #ffffff;
-  --color-cherry: #b83348;
+  --color-cherry: #a11d3d;
   --color-mango: #d97724;
   --color-gold: #b88628;
   --color-mint: #246e4b;
@@ -358,6 +358,7 @@
   }
 
   .brand-mark {
+    object-fit: contain;
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
@@ -920,6 +921,32 @@
     transform: translateY(-4px);
     box-shadow: 0 16px 36px -8px rgba(30, 20, 13, 0.1);
     border-color: rgba(184, 134, 40, 0.3);
+  }
+
+  .cake-card {
+    background: #fff8f4;
+    border-color: rgba(161, 29, 61, 0.12);
+  }
+
+  .cake-card:hover {
+    border-color: var(--color-berry);
+  }
+
+  .cake-card .price {
+    color: var(--color-berry);
+  }
+
+  .cake-card .btn-outline {
+    background: var(--color-berry);
+    border-color: var(--color-berry);
+    color: #ffffff;
+    box-shadow: 0 6px 14px -6px rgba(161, 29, 61, 0.5);
+  }
+
+  .cake-card .btn-outline:hover {
+    background: var(--color-berry-deep);
+    border-color: var(--color-berry-deep);
+    color: #ffffff;
   }
 
   .cake-card__media {
